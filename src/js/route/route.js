@@ -1,4 +1,4 @@
-angular.module('todoApp')
+angular.module('Kawaya')
 .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /home

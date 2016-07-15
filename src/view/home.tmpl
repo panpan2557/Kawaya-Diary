@@ -14,32 +14,32 @@
 
   <!-- main panel -->
   <h3>Main Panel</h3>
-  <div class="container">
-    <button type="button" class="col-xs-12 col-md-6 col-lg-4 btn btn-default user container">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-3 image-container">
-            <img src="src/image/user-icon.png" class="img-rounded img-responsive image-profile">
-          </div>
-          <div class="col-xs-9 info">
-            <div class="row">
-              <div class="col-xs-12">
-                <h4>Name: {{controller.allUserData[0].name}}</h4>
+  <div class="">
+    <div ng-repeat="user in controller.allUserData" class="col-xs-12 col-md-6 col-lg-4">
+      <button type="button" class="btn btn-default container-fluid user">
+        <div class="container-fluid user-container">
+            <div class="col-xs-3 image-container">
+              <img src="src/image/user-icon.png" class="img-rounded img-responsive image-profile">
+            </div>
+            <div class="col-xs-9 info">
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Name: {{user.name}}</h4>
+                </div>
+                <div class="col-xs-12">
+                  UserID: {{user.userid}}
+                </div>
               </div>
-              <div class="col-xs-12">
-                UserID: {{controller.allUserData[0].userid}}
+              <div class="row secondary-info">
+                <div class="col-xs-12">Age: {{20}}</div>
+                <div class="col-xs-12">Sex: {{user.sex}}</div>
+                <div class="col-xs-12">Date of Birth: {{user.dob}}</div>
+                <div class="col-xs-12">Contact: {{user.contact}}</div>
               </div>
             </div>
-            <div class="row secondary-info">
-              <div class="col-xs-12">Age: {{20}}</div>
-              <div class="col-xs-12">Sex: {{controller.allUserData[0].sex}}</div>
-              <div class="col-xs-12">Date of Birth: {{controller.allUserData[0].dob}}</div>
-              <div class="col-xs-12">Contact: {{controller.allUserData[0].contact}}</div>
-            </div>
-          </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
 </div>
 

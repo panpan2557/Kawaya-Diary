@@ -1,0 +1,51 @@
+h4 {
+	margin-top: 0px;
+}
+
+.banner {
+
+}
+
+.image-container {
+	padding-left: 0px;  
+	padding-right: 0px;
+}
+
+.image-profile {
+	border: #dadada;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.user {
+	/*height: 200px;*/
+	/*width: 100%;*/
+	padding: 20px;
+	
+}
+
+.info {
+	text-align: left;
+}
+
+.sex-label {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.valign-middle {
+    display: table;
+}
+
+.valign-middle .columns {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.valign-middle .columns,
+.valign-middle [class*="column"] + [class*="column"]:last-child {
+    float: none;
+}

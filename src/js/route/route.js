@@ -10,8 +10,8 @@ angular.module('Kawaya')
       url: "/home",
       templateUrl: "src/view/home.tmpl"
     })
-    .state('changepage', {
-      url: "/changepage",
-      templateUrl: "src/view/changepage.tmpl"
+    .state('userevent', {
+      url: "/userevent",
+      templateUrl: "src/view/userevent.tmpl"
     })
 });

@@ -1,6 +1,5 @@
 angular.module('Kawaya')
 .config(function($stateProvider, $urlRouterProvider) {
-  //
   // For any unmatched url, redirect to /home
   $urlRouterProvider.otherwise("/home");
   //
@@ -11,9 +10,9 @@ angular.module('Kawaya')
       templateUrl: "src/view/home.tmpl",
       controller: 'MainController as MainCtrl'
     })
-    .state('userpage', {
-      url: "/userinfo",
-      templateUrl: "src/view/changepage.tmpl",
-      controller: 'UserController as UserCtrl'
+
+    .state('user', {
+      url: "/user/:userID",
+      templateUrl: "src/view/userevent.tmpl"
     })
 });

@@ -1,0 +1,29 @@
+<div ng-controller="UserEventController as controller">
+	<div class="jumbotron banner">
+		<div class="container">
+			<div class="col-lg-2 image-container">
+				<img src="src/image/user-icon.png" class="img-rounded img-responsive image-profile">
+			</div>
+			<div class="col-lg-10 info">
+				<div class="row">
+					<div class="col-lg-6 name">
+		              Name: user.name
+		            </div>
+		            <div class="col-lg-6">
+		              UserID: user.userid
+		            </div>
+				</div>
+				
+	            <div class="row">
+		            <div class="col-xs-12 col-lg-6">Age: {{20}}</div>
+		            <div class="col-xs-12 col-lg-6">Sex: {{user.sex}}</div>
+		            <div class="col-xs-12 col-lg-6">Date of Birth: {{user.dob}}</div>
+		            <div class="col-xs-12 col-lg-6">Contact: {{user.contact}}</div>
+	          	</div>
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+

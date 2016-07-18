@@ -1,7 +1,8 @@
 angular.module('Kawaya')
-  .controller('UserEventController', function () {
+  .controller('UserEventController', ['$state', function () {
   	var controller = this;
   	
 
 
-});
+	}
+]);

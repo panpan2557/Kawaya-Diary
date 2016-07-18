@@ -1,5 +1,5 @@
 angular.module('Kawaya', ['ui.router'])
-  .controller('MainController', function () {
+  .controller('MainController', ['$state', function () {
   	var controller = this;
   	//all user data
   	var allUserData = getAllUserData();
@@ -8,7 +8,8 @@ angular.module('Kawaya', ['ui.router'])
   	controller.allUserData = allUserData;
 
 
-  });
+  }
+ ]);
 
 function getAllUserData() {
 	return [

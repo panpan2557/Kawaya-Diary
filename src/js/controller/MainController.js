@@ -4,11 +4,23 @@ angular.module('Kawaya', ['ui.router'])
   	//all user data
   	var allUserData = getAllUserData();
 
+  	controller.propName = null;
+	controller.reverse = false;
+	controller.allUserData = allUserData;
 
-  	controller.allUserData = allUserData;
+  	controller.sortBy = function(propName){
+			// controller.reverse = (controller.propName === propName)? !controller.reverse : false;
+			controller.propName = propName;
+	};
 
+	controller.calAge = function(bd){
+		var agediff = Date.now() - new Date(bd);
+		var ageDate = new Date(agediff);
+		return Math.abs(ageDate.getUTCFullYear()-1970);
+	};
 
   });
+
 
 function getAllUserData() {
 	return [

@@ -68,7 +68,7 @@
   <!-- main panel -->
   <div class="">
     <div ng-repeat="user in controller.allUserData | orderBy:controller.propName:controller.reverse" class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <button type="button" class="btn btn-default container-fluid user">
+      <button ng-click="controller.goToUser(user.userid)" type="button" class="btn btn-default container-fluid user">
         <div class="container-fluid user-container">
             <div class="col-xs-3 image-container">
               <img src="src/image/user-icon.png" class="img-rounded img-responsive image-profile">

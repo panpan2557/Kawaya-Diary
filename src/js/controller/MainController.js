@@ -1,5 +1,5 @@
 angular.module('Kawaya', ['ui.router'])
-  .controller('MainController', ['$state', function () {
+  .controller('MainController', ['$state', function ($state) {
   	var controller = this;
   	//all user data
   	var allUserData = getAllUserData();
@@ -18,6 +18,11 @@ angular.module('Kawaya', ['ui.router'])
 		var ageDate = new Date(agediff);
 		return Math.abs(ageDate.getUTCFullYear()-1970);
 	};
+
+	controller.goToUser = function(userID) {
+		console.log(userID);
+		$state.go('user', {userID: userID});
+	}
 
   }
  ]);

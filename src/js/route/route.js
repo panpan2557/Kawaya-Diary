@@ -8,10 +8,12 @@ angular.module('Kawaya')
   $stateProvider
     .state('home', {
       url: "/home",
-      templateUrl: "src/view/home.tmpl"
+      templateUrl: "src/view/home.tmpl",
+      controller: 'MainController as MainCtrl'
     })
-    .state('changepage', {
-      url: "/changepage",
-      templateUrl: "src/view/changepage.tmpl"
+    .state('userpage', {
+      url: "/userinfo",
+      templateUrl: "src/view/changepage.tmpl",
+      controller: 'UserController as UserCtrl'
     })
 });

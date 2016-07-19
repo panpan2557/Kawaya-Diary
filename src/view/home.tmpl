@@ -1,21 +1,4 @@
-<div ng-controller="MainController as controller" ng-init="controller.getAll()">
-
-
-  <nav class="navbar navbar-default navbar-fixed-top navbar-list-selection col-xs-offset-4 col-xs-4">
-    <div class="container-fluid">
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
+<div ng-controller="MainController as MainCtrl" ng-init="MainCtrl.getAll()">
 
   <div class="jumbotron banner">
     <h1>Kawaya Diary</h1>
@@ -30,22 +13,22 @@
           <div class="col-xs-6 col-md-2 col-md-offset-3 marg-bottom">
             <div class="caption">
               <h4 style="text-align:center">Name</h4>
-                <p><a class="btn btn-primary button-offset" role="button"ng-click="controller.sortBy('name')">A-Z</a>
-                <a class="btn btn-default" role="button" ng-click="controller.sortBy('-name')">Z-A</a></p>
+                <p><a lass="btn btn-primary button-offset" role="button"ng-click="MainCtrl.sortBy('name')">A-Z</a>
+                <a class="btn btn-default" role="button" ng-click="MainCtrl.sortBy('-name')">Z-A</a></p>
             </div>
           </div>
           <div class="col-xs-6 col-md-2 marg-bottom">
             <div class="caption">
               <h4 style="text-align:center">Age</h4>
-                <p><a class="btn btn-primary button-offset" role="button" ng-click="controller.sortBy('-dob')">Asc</a> 
-                <a class="btn btn-default" role="button" ng-click="controller.sortBy('dob')">Dsc</a></p>
+                <p><a class="btn btn-primary button-offset" role="button" ng-click="MainCtrl.sortBy('-dob')">Asc</a> 
+                <a class="btn btn-default" role="button" ng-click="MainCtrl.sortBy('dob')">Dsc</a></p>
             </div>
           </div>
           <div class="col-xs-6 col-md-2 marg-bottom">
             <div class="caption">
               <h4 style="text-align:center">Sex</h4>
-                <p><a class="btn btn-primary button-offset sex-button" role="button" ng-click="controller.sortBy('-sex')"> M </a> 
-                <a class="btn btn-default sex-button" role="button" ng-click="controller.sortBy('sex')"> F </a></p>
+                <p><a class="btn btn-primary button-offset sex-button" role="button" ng-click="MainCtrl.sortBy('-sex')"> M </a> 
+                <a class="btn btn-default sex-button" role="button" ng-click="MainCtrl.sortBy('sex')"> F </a></p>
             </div>
           </div>
       </div>
@@ -72,8 +55,8 @@
 
   <!-- main panel -->
   <div class="">
-    <div ng-repeat="user in controller.allUserData | orderBy:controller.propName | filter:keyword" class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-      <button ng-click="controller.goToUser(user.userid)" type="button" class="btn btn-default container-fluid user">
+    <div ng-repeat="user in MainCtrl.allUserData | orderBy:MainCtrl.propName | filter:keyword" class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <button ng-click="MainCtrl.goToUser(user.userid)" type="button" class="btn btn-default container-fluid user">
         <div class="container-fluid user-container">
             <div class="col-xs-3 image-container">
               <img src="src/image/user-icon.png" class="img-rounded img-responsive image-profile">
@@ -88,7 +71,7 @@
                 </div>
               </div>
               <div class="row secondary-info">
-                <div class="col-xs-12">Age: {{controller.calAge(user.dob)}}</div>
+                <div class="col-xs-12">Age: {{MainCtrl.calAge(user.dob)}}</div>
                 <div class="col-xs-12">Sex: {{user.sex}}</div>
                 <div class="col-xs-12">Date of Birth: {{user.dob}}</div>
                 <div class="col-xs-12">Contact: {{user.contact}}</div>

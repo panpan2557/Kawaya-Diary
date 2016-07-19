@@ -15,4 +15,9 @@ angular.module('Kawaya')
       url: "/user/:userID",
       templateUrl: "src/view/userevent.tmpl"
     })
+
+    .state('alluser',{
+      url: "/alluser",
+      templateUrl: "src/view/alluserevent.tmpl"
+    })
 });

@@ -1,5 +1,5 @@
 angular.module('Kawaya')
-  .controller('UserEventController', ['$http', '$state', '$stateParams','$scope', function ($http, $state, $stateParams,$scope) {
+  .controller('UserEventController', ['$http', '$state', '$stateParams','$scope', '$rootScope',function ($http, $state, $stateParams,$scope,$rootScope) {
 
     var controller = this;
     controller.userID = $stateParams.userID;
@@ -10,6 +10,10 @@ angular.module('Kawaya')
         var ageDate = new Date(agediff);
         return Math.abs(ageDate.getUTCFullYear()-1970);
      };
+
+     $rootScope.$on('$stateChangeSuccess', function() {
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
     
     function getUserInfo(userID) {
       console.log(userID);
@@ -24,7 +28,7 @@ angular.module('Kawaya')
   };
 
   //wait for API to finish
-  
+
   // controller.getIndividual = function(userID){
   //   url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-userdata.cgi?userid=' + userID;
   //   $http({

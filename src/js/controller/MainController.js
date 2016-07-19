@@ -1,5 +1,5 @@
 angular.module('Kawaya', ['ui.router'])
-  .controller('MainController', ['$state', function ($state) {
+  .controller('MainController', ['$state','$http','$scope', function ($state , $http, $scope) {
   	var controller = this;
   	//all user data
   	var allUserData = getAllUserData();
@@ -23,6 +23,20 @@ angular.module('Kawaya', ['ui.router'])
 		console.log(userID);
 		$state.go('user', {userID: userID});
 	}
+
+	controller.getAll = function(){
+		var url = "https://crossorigin.me/"+"http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alluser.cgi";
+		$http({
+  			method: 'GET',
+  			url: url
+		}).then(function successCallback(response) {
+    		console.log('eiei');
+  		}, function errorCallback(response) {
+  		   console.log('ima crying');
+ 		 });
+
+
+	};
 
   }
  ]);
@@ -56,6 +70,6 @@ function getAllUserData() {
 	 },
 	 { "userid":"100004", "name":"山本 強","sex":"M",
 	   "dob":"1953/12/16","contact":"1953/12/16"
-	 }
+	 },
 	];
 }

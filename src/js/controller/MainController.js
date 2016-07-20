@@ -22,21 +22,33 @@ angular.module('Kawaya', ['ui.router'])
 	controller.goToUser = function(userID) {
 		console.log(userID);
 		$state.go('user', {userID: userID});
-	}
+	};
 
 	controller.getAll = function(){
-		var url = "https://crossorigin.me/"+"http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alluser.cgi";
-		$http({
+		var url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alluser.cgi';
+		var req = {
   			method: 'GET',
   			url: url
-		}).then(function successCallback(response) {
-    		console.log('eiei');
+		};
+		$http(req).then(function successCallback(response) {
+    		console.log(response);
   		}, function errorCallback(response) {
-  		   console.log('ima crying');
+  		   console.log(response);
  		 });
 
+		// var url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alluser.cgi';
+		// var req = {
+		// 	method: 'GET',
+		// 	url: url
+		// }
 
+		// $http(req).then(function success(response) {
+		// 	console.log(response);
+		// }, function error(response) {
+		// 	console.log("error " + response);
+		// })
 	};
+	controller.getAll();
 
   }
  ]);

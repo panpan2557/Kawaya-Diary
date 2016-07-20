@@ -2,4 +2,67 @@
 	<div class="jumbotron banner">
   		<h1>All User Event</h1>
 	</div>
+
+	<div class="container datatable">
+	  <table class="table table-striped">
+	    <thead>
+	      <tr class="something">
+	      	<th class="col-md-3">name</th>
+		    <th class="col-md-3">date</th>
+		    <th class="col-md-2">time</th>
+		    <th class="col-md-2">bristol</th>
+		    <th class="col-md-2">location</th>
+		  </tr>
+	    </thead>
+	    <tbody>
+	      <tr ng-repeat="alldetail in AllUserEventCtrl.alluserdata | orderBy:'-date'" valign="center">
+	      	<td class="col-md-3">{{alldetail.username}}</td>
+	        <td class="col-md-3">{{alldetail.date}}</td>
+	        <td class="col-md-2">{{alldetail.time}}</td>
+		    <td class="col-md-2"><span class="label label-primary bristle">{{alldetail.bristol}}</span></td>
+		    <td class="col-md-2">
+		    	<button ng-model="UserCtrl.val" type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal{{alldetail.indexID}}">
+				  Click here
+				</button>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal{{alldetail.indexID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h3 class="modal-title" id="myModalLabel">Location Information</h3>
+				      </div>
+				      <div class="modal-body">
+				        <div class="row infotab">
+				        	<div class="col-xs-2 "><h4>DeviceID  </h4></div>
+				        	<div class="col-xs-10"><h4>: {{alldetail.devid}}</h4></div>
+				        </div>
+				        <div class="row infotab">
+				        	<div class="col-xs-2 "><h4>IPAdress  </h4></div>
+				        	<div class="col-xs-10"><h4>: {{alldetail.ipaddr}}</h4></div>
+				        </div>
+				        <div class="row infotab">
+				        	<div class="col-xs-2 "><h4>Latitude  </h4></div>
+				        	<div class="col-xs-10"><h4>: {{alldetail.lat}}</h4></div>
+				        </div>
+				        <div class="row infotab">
+				        	<div class="col-xs-2 "><h4>Longitude  </h4></div>
+				        	<div class="col-xs-10"><h4>: {{alldetail.lon}}</h4></div>
+				        </div>
+				        <div class="row infotab">
+				        	<div class="col-xs-12"><h4>Map <a class="btn btn-success" href="http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/kawaya-map.cgi?k_lang=0&devid=155eb38dc8cd8f2&lat={{alldetail.lat}}&lon={{alldetail.lon}}" role="button" style="margin-left:10px;">Click here</a></h4></div>
+				        </div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+		    </td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+
 </div>

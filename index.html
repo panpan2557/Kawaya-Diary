@@ -22,17 +22,18 @@
 
 
     <!-- some navigation -->
-    
     <nav class="navbar navbar-default navbar-fixed-top navbar-list-selection col-xs-offset-4 col-xs-4" ng-controller="LayoutController as LayoutCtrl">
     <div class="container-fluid">
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <a class="btn btn-default" role="button" ng-click="LayoutCtrl.gotoUserMode()">U</a>
-        </ul>
+        <ul class="nav navbar-nav col-xs-12 nav-button">
+          <!-- <a class="btn btn-default nav-button" role="button" ng-click="LayoutCtrl.gotoUserMode()">U</a> -->
+          <li class="col-xs-6"><a role="button" ng-click="LayoutCtrl.gotoUserMode()"><h5>Usermode</h5></a></li> 
+        <!-- </ul> -->
 
-        <ul class="nav navbar-nav navbar-right">
-          <a class="btn btn-default" role="button" ng-click="LayoutCtrl.gotoAllUserMode()">E</a>
+        <!-- <ul class="nav navbar-nav navbar-right"> -->
+         <!--  <a class="btn btn-default nav-button" role="button" ng-click="LayoutCtrl.gotoAllUserMode()">E</a> -->
+         <li class="col-xs-6"><a role="button" ng-click="LayoutCtrl.gotoAllUserMode()"><h5>Eventmode</h5></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

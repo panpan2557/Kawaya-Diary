@@ -1,12 +1,6 @@
 angular.module('Kawaya', ['ui.router'])
   .controller('MainController', ['$state','$http','$scope', function ($state , $http, $scope) {
   	var controller = this;
-  	//all user data
-  	var allUserData = getAllUserData();
-
-  	controller.propName = null;
-	controller.reverse = false;
-	controller.allUserData = allUserData;
 
   	controller.sortBy = function(propName){
 			// controller.reverse = (controller.propName === propName)? !controller.reverse : false;
@@ -31,23 +25,16 @@ angular.module('Kawaya', ['ui.router'])
   			url: url
 		};
 		$http(req).then(function successCallback(response) {
-    		console.log(response);
+    		// console.log(response.data.alluser);
+    		controller.allUserData = response.data.alluser;
   		}, function errorCallback(response) {
-  		   console.log(response);
+  		   console.log("failed");
  		 });
-
-		// var url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alluser.cgi';
-		// var req = {
-		// 	method: 'GET',
-		// 	url: url
-		// }
-
-		// $http(req).then(function success(response) {
-		// 	console.log(response);
-		// }, function error(response) {
-		// 	console.log("error " + response);
-		// })
 	};
+
+	//all user data
+
+  	controller.propName = null;
 	controller.getAll();
 
   }

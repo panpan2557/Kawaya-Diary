@@ -17,6 +17,7 @@ angular.module('Kawaya')
     
     function getUserInfo(userID) {
       console.log(userID);
+      controller.userID = userID;
       url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-getuser.cgi?userid=' + userID;
       $http({
         method: 'GET',
@@ -29,20 +30,23 @@ angular.module('Kawaya')
 
   //wait for API to finish
 
-  // controller.getIndividual = function(userID){
-  //   url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-userdata.cgi?userid=' + userID;
-  //   $http({
-  //       method: 'GET',
-  //       url: url
-  //     }).then(function successCallback(response) {
-  //         controller.indv = response.data;
-  //         //super ez to use just use 
-  //         //ng-repeat='individual in UserCtrl.indv'
-  //         //individual.lat //blabla
+  controller.getIndividual = function(userID){
+    url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-userdata.cgi?userid=' + userID;
+    $http({
+        method: 'GET',
+        url: url
+      }).then(function successCallback(response) {
+          controller.indv = response.data.userdata;
+          var j = 0;
+          for(var i=0;i<controller.indv.length;i++){
+            controller.indv[i].indexID = j++;
+          }
         
-  //     }, function errorCallback(response) {
-  //    });
-  // };
+      }, function errorCallback(response) {
+     });
+  };
+
+  controller.getIndividual(controller.userID);
 
 
       controller.data = [

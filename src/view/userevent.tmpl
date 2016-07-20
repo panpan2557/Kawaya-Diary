@@ -29,28 +29,23 @@
 	  <table class="table table-striped">
 	    <thead>
 	      <tr class="something">
-		    <th class="col-md-3">time</th>
 		    <th class="col-md-3">date</th>
+		    <th class="col-md-3">time</th>
 		    <th class="col-md-3">bristol</th>
 		    <th class="col-md-3">location</th>
 		  </tr>
 	    </thead>
 	    <tbody>
-	      <tr ng-repeat="userdetail in UserCtrl.data">
-	        <!-- <td>{{UserCtrl.time}}</td>
-	        <td>{{UserCtrl.date}}</td>
-	        <td>{{UserCtrl.name}}</td>
-	        <td>{{UserCtrl.bristle}}</td>
-	        <td>{{UserCtrl.location}}</td> -->
+	      <tr ng-repeat="userdetail in UserCtrl.indv | orderBy:'-date'" valign="center">
+	        <td class="col-md-2">{{userdetail.date}}</td>
 	        <td class="col-md-2">{{userdetail.time}}</td>
-		    <td class="col-md-2">{{userdetail.date}}</td>
-		    <td class="col-md-2">{{userdetail.bristol}}</td>
+		    <td class="col-md-3"><span class="label label-primary bristle">{{userdetail.bristol}}</span></td>
 		    <td class="col-md-3">
-		    	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+		    	<button ng-model="UserCtrl.val" type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal{{userdetail.indexID}}">
 				  Click here
 				</button>
 				<!-- Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal fade" id="myModal{{userdetail.indexID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
@@ -75,7 +70,7 @@
 				        	<div class="col-xs-10"><h4>: {{userdetail.lon}}</h4></div>
 				        </div>
 				        <div class="row infotab">
-				        	<div class="col-xs-12"><h4>Map <a class="btn btn-success" href="http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/kawaya-map.cgi?k_lang=0&devid=155eb38dc8cd8f2&lat=43.0763316&lon=141.3386866" role="button" style="margin-left:10px;">Link</a></h4></div>
+				        	<div class="col-xs-12"><h4>Map <a class="btn btn-success" href="http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/kawaya-map.cgi?k_lang=0&devid=155eb38dc8cd8f2&lat={{userdetail.lat}}&lon={{userdetail.lon}}" role="button" style="margin-left:10px;">Click here</a></h4></div>
 				        </div>
 				      </div>
 				      <div class="modal-footer">

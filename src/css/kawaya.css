@@ -42,7 +42,13 @@ body {
 
 .navbar-list-selection {
 	border-radius: 10px;
-	background-color:rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 0px;
+	font-size: 1.5em;
+}
+
+.mode-button:hover {
+	background-color: red;
 }
 
 .marg-bottom{
@@ -72,6 +78,10 @@ body {
 .user-personal-data {
 	font-size: 1.5em;
 	font-weight: lighter;
+}
+
+.userevent-sort {
+	padding: 0px 10px 0px 10px;
 }
 
 

@@ -1,25 +1,53 @@
 <div ng-controller="UserEventController as UserCtrl">
 	<div class="jumbotron banner">
 		<div class="container">
-			<div class="col-lg-2 image-container">
+			<div class="col-xs-offset-1 col-xs-3 col-md-offset-3 col-md-2 image-container">
 				<img src="src/image/user-icon.png" class="img-rounded img-responsive image-profile">
 			</div>
-			<div class="col-lg-10 info">
-				<div class="row">
-					<div class="col-lg-6 name">
-		              Name: {{UserCtrl.userdata.name}}
+			<div class="col-xs-8 col-md-7 info user-personal-data">
+				<div class="container">
+					<div class="col-xs-5 col-md-4">
+		            	<b>Name: </b>
 		            </div>
-		            <div class="col-lg-6">
-		              UserID: {{UserCtrl.userdata.userid}}
+		            <div class="col-xs-7 col-md-8">
+		            	<b>{{UserCtrl.userdata.name}}</b>
 		            </div>
-				</div>
-				
-	            <div class="row">
-		            <div class="col-xs-12 col-lg-6">Age: {{UserCtrl.calAge(UserCtrl.userdata.dob)}}</div>
-		            <div class="col-xs-12 col-lg-6">Sex: {{UserCtrl.userdata.sex}}</div>
-		            <div class="col-xs-12 col-lg-6">Date of Birth: {{UserCtrl.userdata.dob}}</div>
-		            <div class="col-xs-12 col-lg-6">Contact: {{UserCtrl.userdata.contact}}</div>
-	          	</div>
+
+		            <div class="col-xs-5 col-md-4">
+		              	UserID: 
+		            </div>
+		            <div class="col-xs-7 col-md-8">
+		            	{{UserCtrl.userdata.userid}}
+		            </div>
+
+					<div class="col-xs-5 col-md-4">
+		              	Age: 
+		            </div>
+		            <div class="col-xs-7 col-md-8">
+		            	{{UserCtrl.calAge(UserCtrl.userdata.dob)}}
+		            </div>
+
+		            <div class="col-xs-5 col-md-4">
+		              	Sex:
+		            </div>
+		            <div class="col-xs-7 col-md-8">
+		            	{{UserCtrl.userdata.sex}}
+		            </div>
+
+		            <div class="col-xs-5 col-md-4">
+		              	Date of Birth:
+		            </div>
+		            <div class="col-xs-7 col-md-8">
+		            	{{UserCtrl.userdata.dob}}
+		            </div>
+
+		            <div class="col-xs-5 col-md-4">
+		              	Contact:
+		            </div>
+		            <div class="col-xs-7 col-md-8">
+		            	{{UserCtrl.userdata.contact}}
+		            </div>
+	            </div>
 			</div>
 		</div>
 		
@@ -29,10 +57,10 @@
 	  <table class="table table-striped">
 	    <thead>
 	      <tr class="something">
-		    <th class="col-md-3">date</th>
-		    <th class="col-md-3">time</th>
-		    <th class="col-md-3">bristol</th>
-		    <th class="col-md-3">location</th>
+		    <th class="col-md-3">Date</th>
+		    <th class="col-md-3">Time</th>
+		    <th class="col-md-3">Bristol</th>
+		    <th class="col-md-3">Location</th>
 		  </tr>
 	    </thead>
 	    <tbody>

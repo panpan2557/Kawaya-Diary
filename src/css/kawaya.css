@@ -4,13 +4,16 @@ h4 {
 
 body {
 	font-family: "Helvetica", "Arial", sans-serif;
+	font-weight: lighter;
 }
 
 .banner {
 	height: 400px;
 	padding-top: 150px;
 	text-align: center;
-	background: linear-gradient(to right, #70C0E5 , #E5E5E5);
+	/*background: linear-gradient(to right, #70C0E5 , #E5E5E5);*/
+	background-image: url("/src/image/61606b7b.jpeg");
+	background-size: cover;  
 }
 
 .image-container {

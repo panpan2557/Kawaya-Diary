@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/kawaya.css">
   </head>
+
   <body>
     <!-- Import scripts -->
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
@@ -25,26 +26,19 @@
     <script src="src/js/controller/LayoutController.js"></script>
     <script src="src/js/route/route.js"></script>
 
-
-    <!-- some navigation -->
+    <!-- Navigation bar -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-list-selection col-xs-offset-4 col-xs-4" ng-controller="LayoutController as LayoutCtrl">
-    <div class="container-fluid">
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav col-xs-12 nav-button">
-          <!-- <a class="btn btn-default nav-button" role="button" ng-click="LayoutCtrl.gotoUserMode()">U</a> -->
-          <li class="col-xs-6"><a role="button" ng-click="LayoutCtrl.gotoUserMode()">Usermode</a></li> 
-        <!-- </ul> -->
-
-        <!-- <ul class="nav navbar-nav navbar-right"> -->
-         <!--  <a class="btn btn-default nav-button" role="button" ng-click="LayoutCtrl.gotoAllUserMode()">E</a> -->
-         <li class="col-xs-6"><a role="button" ng-click="LayoutCtrl.gotoAllUserMode()">Eventmode</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+      <div class="container-fluid">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav col-xs-12 nav-button">
+            <li class="col-xs-6"><a role="button" ng-click="LayoutCtrl.gotoUserMode()">Usermode</a></li> 
+           <li class="col-xs-6"><a role="button" ng-click="LayoutCtrl.gotoAllUserMode()">Eventmode</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
     <div ui-view ></div>
-
   </body>
 </html>

@@ -67,25 +67,22 @@
 
 	    <div class="collapse col-xs-12" id="sortOption">
 	      <div class="row">
-	          <div class="col-xs-6 col-md-2 col-md-offset-3 marg-bottom">
+	          <div class="col-xs-2 col-md-offset-4 marg-bottom">
 	            <div class="caption">
-	              <h4 style="text-align:center">Name</h4>
-	                <p><a class="btn btn-primary button-offset" role="button"ng-click="MainCtrl.sortBy('name')">A-Z</a>
-	                <a class="btn btn-default" role="button" ng-click="MainCtrl.sortBy('-name')">Z-A</a></p>
+	              	<h4 style="text-align:center">Date</h4>
+	                <select ng-model="select.date" class="btn-lg col-xs-12">
+	                  <option value="">All</option>
+	                  <option ng-repeat="date in UserCtrl.dates" value="{{date}}">{{date}}</option>
+	                </select>
 	            </div>
 	          </div>
-	          <div class="col-xs-6 col-md-2 marg-bottom">
+	          <div class="col-xs-2 marg-bottom">
 	            <div class="caption">
-	              <h4 style="text-align:center">Age</h4>
-	                <p><a class="btn btn-primary button-offset" role="button" ng-click="MainCtrl.sortBy('-dob')">Asc</a> 
-	                <a class="btn btn-default" role="button" ng-click="MainCtrl.sortBy('dob')">Dsc</a></p>
-	            </div>
-	          </div>
-	          <div class="col-xs-6 col-md-2 marg-bottom">
-	            <div class="caption">
-	              <h4 style="text-align:center">Sex</h4>
-	                <p><a class="btn btn-primary button-offset sex-button" role="button" ng-click="MainCtrl.sortBy('-sex')"> M </a> 
-	                <a class="btn btn-default sex-button" role="button" ng-click="MainCtrl.sortBy('sex')"> F </a></p>
+	              	<h4 style="text-align:center">Bristol Type</h4>
+	              	<select ng-model="select.bristol" class="btn-lg col-xs-12">
+	              	  <option value="">All</option>
+	                  <option ng-repeat="bristol in UserCtrl.bristols" value="{{bristol}}">{{bristol}}</option>
+	                </select>
 	            </div>
 	          </div>
 	      	</div>
@@ -120,7 +117,7 @@
 		  </tr>
 	    </thead>
 	    <tbody>
-	      <tr ng-repeat="userdetail in UserCtrl.indv | orderBy:'-date'" valign="center">
+	      <tr ng-repeat="userdetail in UserCtrl.indv | orderBy:'-date' | filter: select.date | filter: bristolFilter" valign="center">
 	        <td class="col-md-2">{{userdetail.date}}</td>
 	        <td class="col-md-2">{{userdetail.time}}</td>
 		    <td class="col-md-3"><span class="label label-primary bristle">{{userdetail.bristol}}</span></td>

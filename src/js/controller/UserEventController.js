@@ -1,5 +1,7 @@
 angular.module('Kawaya')
   .controller('UserEventController', ['$http', '$state', '$stateParams','$scope', '$rootScope',function ($http, $state, $stateParams,$scope,$rootScope) {
+    //for loading animation
+    $scope.loaded = false;
 
     var cors = 'http://cors.io/?u=';
     // var cors = 'https://crossorigin.me/';
@@ -94,6 +96,8 @@ angular.module('Kawaya')
             loadChart();
 
             controller.dates = Array.from(controller.dates);
+
+            $scope.loaded = true;
         }, function errorCallback(response) {
        });
     };

@@ -1,5 +1,8 @@
 angular.module('Kawaya')
 	.controller('AllUserEventController', ['$state', '$http', '$scope', function ($state, $http, $scope){
+		
+		$scope.loaded = false;
+
 		var controller = this;
 
 		var cors = 'http://cors.io/?u=';
@@ -36,6 +39,8 @@ angular.module('Kawaya')
 				          }
 
 				          controller.dates = Array.from(controller.dates);
+
+				          $scope.loaded = true;
 				      }, function errorCallback(response) {
 				      		console.log('failed');
 				     });

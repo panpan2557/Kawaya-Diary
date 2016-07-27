@@ -1,5 +1,8 @@
 angular.module('Kawaya', ['ui.router'])
   .controller('MainController', ['$state','$http','$scope', function ($state , $http, $scope) {
+  	
+  	$scope.loaded = false;
+
   	var controller = this;
 
   	var cors = 'http://cors.io/?u=';
@@ -30,6 +33,7 @@ angular.module('Kawaya', ['ui.router'])
 		$http(req).then(function successCallback(response) {
     		// console.log(response.data.alluser);
     		controller.allUserData = response.data.alluser;
+    		$scope.loaded = true;
   		}, function errorCallback(response) {
   		   console.log("failed");
  		 });

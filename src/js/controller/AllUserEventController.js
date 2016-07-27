@@ -2,8 +2,11 @@ angular.module('Kawaya')
 	.controller('AllUserEventController', ['$state','$http', function ($state,$http){
 		var controller = this;
 
+		var cors = 'http://cors.io/?u=';
+    	// var cors = 'https://crossorigin.me/';
+
 		controller.getAllUser = function(){
-			var url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alluser.cgi';
+			var url = cors + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alluser.cgi';
 			$http({
 				method: 'GET',
 				url: url
@@ -15,7 +18,7 @@ angular.module('Kawaya')
 				}
 				controller.data = arr;
 
-				    url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alldata.cgi';
+				    url = cors + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-alldata.cgi';
 				    $http({
 				        method: 'GET',
 				        url: url

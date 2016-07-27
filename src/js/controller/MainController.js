@@ -5,8 +5,7 @@ angular.module('Kawaya', ['ui.router'])
 
   	var controller = this;
 
-  	var cors = 'http://jsonp.afeld.me/?url=';
-  	// var cors = 'http://cors.io/?u=';
+  	var cors = 'http://cors.io/?u=';
     // var cors = 'https://crossorigin.me/';
 
   	controller.sortBy = function(propName){

@@ -46,7 +46,7 @@
 	    </thead>
 	    <tbody>
 	      <tr ng-repeat="alldetail in AllUserEventCtrl.alluserdata | orderBy:'-date'" valign="center">
-	      	<td class="col-md-3">{{alldetail.username}}</td>
+	      	<td class="col-md-3"><a ng-href="/#/user/{{alldetail.userid}}">{{alldetail.username}}</a></td>
 	        <td class="col-md-3">{{alldetail.date}}</td>
 	        <td class="col-md-2">{{alldetail.time}}</td>
 		    <td class="col-md-2"><span class="label label-primary bristle">{{alldetail.bristol}}</span></td>

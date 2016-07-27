@@ -12,6 +12,7 @@ angular.module('Kawaya')
 				url: url
 			}).then(function successCallback(response){
 				var data = response.data.alluser;
+
 				var arr = {};
 				for(var i=0;i<data.length;i++){
 					arr[data[i].userid] = data[i].name;

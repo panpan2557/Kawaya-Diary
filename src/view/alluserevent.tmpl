@@ -3,15 +3,45 @@
   		<h1>All User Event</h1>
 	</div>
 
+	<div class="container">
+		<!-- Sort Button -->
+		<div class="col-xs-offset-5 col-xs-2 userevent-button">
+		<button type="button" class="btn btn-primary marg-bottom col-xs-12" data-toggle="collapse" data-target="#sortOption" aria-expanded="false" aria-controls="collapseExample"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Sort</button>
+		</div>
+
+	    <div class="collapse col-xs-12" id="sortOption">
+	      <div class="row">
+	          <div class="col-xs-2 col-md-offset-4 marg-bottom">
+	            <div class="caption">
+	              	<h4 style="text-align:center">Date</h4>
+	                <select ng-model="select.date" class="btn-lg col-xs-12">
+	                  <option value="">All</option>
+	                  <option ng-repeat="date in UserCtrl.dates" value="{{date}}">{{date}}</option>
+	                </select>
+	            </div>
+	          </div>
+	          <div class="col-xs-2 marg-bottom">
+	            <div class="caption">
+	              	<h4 style="text-align:center">Bristol Type</h4>
+	              	<select ng-model="select.bristol" class="btn-lg col-xs-12">
+	              	  <option value="">All</option>
+	                  <option ng-repeat="bristol in UserCtrl.bristols" value="{{bristol}}">{{bristol}}</option>
+	                </select>
+	            </div>
+	          </div>
+	      	</div>
+	    </div>
+	</div>
+
 	<div class="container datatable">
 	  <table class="table table-striped">
 	    <thead>
 	      <tr class="something">
-	      	<th class="col-md-3">name</th>
-		    <th class="col-md-3">date</th>
-		    <th class="col-md-2">time</th>
-		    <th class="col-md-2">bristol</th>
-		    <th class="col-md-2">location</th>
+	      	<th class="col-md-3">Name</th>
+		    <th class="col-md-3">Date</th>
+		    <th class="col-md-2">Time</th>
+		    <th class="col-md-2">Bristol</th>
+		    <th class="col-md-2">Location</th>
 		  </tr>
 	    </thead>
 	    <tbody>

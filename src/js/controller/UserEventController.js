@@ -1,31 +1,8 @@
 angular.module('Kawaya')
   .controller('UserEventController', ['$http', '$state', '$stateParams','$scope', '$rootScope',function ($http, $state, $stateParams,$scope,$rootScope) {
 
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-
-      // Create the data table.
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Topping');
-      data.addColumn('number', 'Slices');
-      data.addRows([
-        ['Mushrooms', 3],
-        ['Onions', 1],
-        ['Olives', 1],
-        ['Zucchini', 1],
-        ['Pepperoni', 2]
-      ]);
-
-      // Set chart options
-      var options = {'title':'How Much Pizza I Ate Last Night',
-                     'width':400,
-                     'height':300};
-
-      // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-    }
+    var cors = 'http://cors.io/?u=';
+    // var cors = 'https://crossorigin.me/';
 
     var controller = this;
     controller.userID = $stateParams.userID;
@@ -44,7 +21,7 @@ angular.module('Kawaya')
     function getUserInfo(userID) {
       console.log(userID);
       controller.userID = userID;
-      url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-getuser.cgi?userid=' + userID;
+      url = cors + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-getuser.cgi?userid=' + userID;
       $http({
         method: 'GET',
         url: url
@@ -54,9 +31,40 @@ angular.module('Kawaya')
      });
     };
 
+    function loadChart() {
+      var drawChart = function() {
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'ฺBristol');
+        data.addColumn('number', 'Total');
+        tempData = controller.bristolChartData;
+        data.addRows(tempData);
+
+        // Set chart options
+        var options = {
+          title: 'All Bristol Summary',
+          width: 400,
+          height: 300,
+          pieHole: 0.4,
+          fontSize: 15,
+          pieSliceTextStyle: {
+            bold: true,
+            color: 'white'
+          },
+          titleTextStyle: {
+            bold: false
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+      google.charts.setOnLoadCallback(drawChart);
+    }
+
     //wait for API to finish
     controller.getIndividual = function(userID){
-      url = 'https://crossorigin.me/' + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-userdata.cgi?userid=' + userID;
+      url = cors + 'http://ime.ist.hokudai.ac.jp/~yamamoto/kawaya/api-json-userdata.cgi?userid=' + userID;
       $http({
           method: 'GET',
           url: url
@@ -65,11 +73,26 @@ angular.module('Kawaya')
             //for sorting
             controller.dates = new Set();
             controller.bristols = [1,2,3,4,5,6,7];
+            //for chart
+            controller.bristolChartData = [
+              ['1', 0],
+              ['2', 0],
+              ['3', 0],
+              ['4', 0],
+              ['5', 0],
+              ['6', 0],
+              ['7', 0]
+            ];
+
             var j = 0;
             for(var i=0; i < controller.indv.length; i++){
               controller.dates.add(controller.indv[i].date);
+              controller.bristolChartData[controller.indv[i].bristol-1][1]++;
               controller.indv[i].indexID = j++;
             }
+
+            loadChart();
+
             controller.dates = Array.from(controller.dates);
         }, function errorCallback(response) {
        });

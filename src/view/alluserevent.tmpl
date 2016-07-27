@@ -16,7 +16,7 @@
 	              	<h4 style="text-align:center">Date</h4>
 	                <select ng-model="select.date" class="btn-lg col-xs-12">
 	                  <option value="">All</option>
-	                  <option ng-repeat="date in UserCtrl.dates" value="{{date}}">{{date}}</option>
+	                  <option ng-repeat="date in AllUserEventCtrl.dates" value="{{date}}">{{date}}</option>
 	                </select>
 	            </div>
 	          </div>
@@ -25,7 +25,7 @@
 	              	<h4 style="text-align:center">Bristol Type</h4>
 	              	<select ng-model="select.bristol" class="btn-lg col-xs-12">
 	              	  <option value="">All</option>
-	                  <option ng-repeat="bristol in UserCtrl.bristols" value="{{bristol}}">{{bristol}}</option>
+	                  <option ng-repeat="bristol in AllUserEventCtrl.bristols" value="{{bristol}}">{{bristol}}</option>
 	                </select>
 	            </div>
 	          </div>
@@ -45,7 +45,7 @@
 		  </tr>
 	    </thead>
 	    <tbody>
-	      <tr ng-repeat="alldetail in AllUserEventCtrl.alluserdata | orderBy:'-date'" valign="center">
+	      <tr ng-repeat="alldetail in AllUserEventCtrl.alluserdata | orderBy:'-date' | filter: select.date | filter: bristolFilter" valign="center">
 	      	<td class="col-md-3"><a ng-href="/#/user/{{alldetail.userid}}">{{alldetail.username}}</a></td>
 	        <td class="col-md-3">{{alldetail.date}}</td>
 	        <td class="col-md-2">{{alldetail.time}}</td>

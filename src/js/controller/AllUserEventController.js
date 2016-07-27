@@ -1,5 +1,5 @@
 angular.module('Kawaya')
-	.controller('AllUserEventController', ['$state','$http', function ($state,$http){
+	.controller('AllUserEventController', ['$state', '$http', '$scope', function ($state, $http, $scope){
 		var controller = this;
 
 		var cors = 'http://cors.io/?u=';
@@ -25,11 +25,17 @@ angular.module('Kawaya')
 				        url: url
 				      }).then(function successCallback(response) {
 				          controller.alluserdata = response.data.alldata;
+				          //for sorting
+				          controller.dates = new Set();
+				          controller.bristols = [1,2,3,4,5,6,7];
 				          var j = 0;
-				          for(var i=0;i<controller.alluserdata.length;i++){
+				          for(var i = 0; i < controller.alluserdata.length; i++){
+				          	controller.dates.add(controller.alluserdata[i].date);
 				            controller.alluserdata[i].indexID = j++;
 				            controller.alluserdata[i].username = controller.data[controller.alluserdata[i].userid];
 				          }
+
+				          controller.dates = Array.from(controller.dates);
 				      }, function errorCallback(response) {
 				      		console.log('failed');
 				     });
@@ -41,5 +47,18 @@ angular.module('Kawaya')
 		};
 
 		controller.getAllUser();
+
+		//init the bristol model first
+	    $scope.select = {
+	      bristol: ""
+	    }
+
+	    //custom filter the bristol
+	    $scope.bristolFilter = function(event) {
+	      //"" == Any
+	      if ($scope.select.bristol == "")
+	        return true;
+	      return event.bristol === $scope.select.bristol;
+	    };
 
 	}]);

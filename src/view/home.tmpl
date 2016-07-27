@@ -4,9 +4,20 @@
     <h1>-&nbspKawaya Diary&nbsp-</h1>
     <h3 style="color:white;">White paper</h3>
   </div>
+
+  <!-- search bar -->
+  <div class="container searchbar input-group col-xs-12">
+   <div class="searchbar input-group container marg-bottom">
+    <span class="input-group-addon">
+        <i class="glyphicon glyphicon-search"></i>
+    </span>
+    <input type="text" class="form-control" placeholder="Search" ng-model="keyword"/>
+  </div>
+  </div>
+  
   <!-- filter panel -->
   <div class="container">
-    <button type="button" class="btn btn-primary col-xs-2 col-xs-offset-5 marg-bottom" data-toggle="collapse" data-target="#filterOption" aria-expanded="false" aria-controls="collapseExample"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span>Filter</button>
+    <button type="button" class="btn btn-primary col-xs-2 col-xs-offset-5 marg-bottom" data-toggle="collapse" data-target="#filterOption" aria-expanded="false" aria-controls="collapseExample"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Sort</button>
   
     <div class="collapse col-xs-12" id="filterOption">
 
@@ -35,18 +46,6 @@
       </div>
       
     </div>
-  </div>
-
-
-
-  <!-- search bar -->
-  <div class="container searchbar input-group col-xs-12">
-   <div class="searchbar input-group container marg-bottom">
-    <span class="input-group-addon">
-        <i class="glyphicon glyphicon-search"></i>
-    </span>
-    <input type="text" class="form-control" placeholder="Search" ng-model="keyword"/>
-  </div>
   </div>
 
   <!-- filter button -->
